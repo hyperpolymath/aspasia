@@ -1,0 +1,157 @@
+= Elenchus — Independent Neurosymbolic Statistical Auditor
+:author: Jonathan D.A. Jewell
+:email: jonathan.jewell@open.ac.uk
+:license: PMPL-1.0-or-later
+:toc:
+
+== Why Does This Exist?
+
+StatistEase computes statistics using Julia. An LLM routes questions to Julia
+functions and explains the results. No neural numbers — good.
+
+But three problems remain:
+
+1. **Did Julia compute correctly?** Software has bugs. Numerical libraries
+   have edge cases. A single implementation is a single point of failure.
+2. **Was this the right test?** The LLM chose a t-test. Should it have been
+   Mann-Whitney? The LLM doesn't _know_ — it pattern-matches. It might be
+   right. It might be confidently wrong.
+3. **Is the explanation accurate?** The LLM says "large effect size" but
+   Cohen's d is 0.35. That's small-to-medium. The number was correct; the
+   _interpretation_ was not.
+
+Elenchus solves all three by providing an **independent neurosymbolic audit**
+from a completely separate codebase, in a completely different language, using
+a completely different reasoning engine.
+
+== Why Octave? Why Not Julia?
+
+This is the most important design decision in the project, and it is *not*
+overcomplicated — it is the *minimum* necessary for genuine independence:
+
+[cols="1,1,1"]
+|===
+|Property |StatistEase (Julia) |Elenchus (GNU Octave)
+
+|Numerical backend |OpenBLAS |LAPACK/BLAS (system)
+|Sorting algorithm |Julia's QuickSort |Octave's std::sort
+|Statistical library |StatsBase.jl |Octave statistics package
+|Floating-point path |Julia's LLVM codegen |GCC/gfortran codegen
+|Reasoning engine |LLM tool calling |Prolog + DeepProbLog
+|Developer community |Scientific computing |Engineering + applied maths
+|===
+
+If both systems produce the same answer via **different code paths**, that
+answer is far more trustworthy than either system alone. If they disagree,
+that disagreement is **valuable information** — it reveals either a bug or
+a genuine numerical sensitivity.
+
+Using the same language would mean the same library, the same bugs, the same
+blind spots. That is not independence. That is redundancy.
+
+This also attracts **different developers**. Julia people and Octave/MATLAB
+people come from different disciplines, think differently about numerical
+problems, and catch different classes of bugs. Two independent communities
+competing toward the same goal — correctness — makes both systems better.
+
+== Architecture
+
+```
+StatistEase                          Elenchus
+┌────────────────────┐              ┌────────────────────┐
+│  Julia computation │              │  Octave recompute  │
+│  (the numbers)     │──── JSON ───►│  (same data, diff  │
+│                    │   transaction│   code path)       │
+└────────┬───────────┘              └────────┬───────────┘
+         │                                   │
+         │                          ┌────────▼───────────┐
+         │                          │  Prolog ontology   │
+         │                          │  (was this the     │
+         │                          │   RIGHT test?)     │
+         │                          └────────┬───────────┘
+         │                                   │
+         │                          ┌────────▼───────────┐
+         │                          │  Interpretation    │
+         │                          │  audit (does the   │
+         │                          │  explanation match  │
+         │                          │  the numbers?)     │
+         │                          └────────┬───────────┘
+         │                                   │
+         ▼                                   ▼
+┌────────────────────────────────────────────────────────┐
+│                    USER SEES BOTH                       │
+│  Result: t(38) = 2.847, p = .007, d = 0.90            │
+│  Audit:  VERIFIED — computation, test selection, and   │
+│          interpretation all check out.                  │
+└────────────────────────────────────────────────────────┘
+```
+
+== The Three Audit Phases
+
+=== Phase 1: Numerical Verification (Octave)
+
+"Did the computation produce the correct numbers?"
+
+Elenchus independently recomputes every statistical result using GNU Octave.
+Different language, different BLAS, different floating-point code paths. If
+the results match within tolerance (1e-10), the numbers are verified.
+
+=== Phase 2: Ontological Reasoning (Prolog/DeepProbLog)
+
+"Was this the right test to run?"
+
+A Prolog knowledge base encodes Stevens' measurement scales, test prerequisites,
+assumption requirements, and nonparametric alternatives. DeepProbLog extends this
+with probabilistic confidence.
+
+This is genuinely neurosymbolic — the probabilities can be learned from data
+(neural) while the logical structure is fixed (symbolic).
+
+=== Phase 3: Interpretation Audit (Prolog + Octave)
+
+"Does the LLM's explanation accurately represent the result?"
+
+Cross-references effect size labels against Cohen's conventions, checks for
+p-value misinterpretation (ASA 2016 statement), detects significance inflation
+with large N, and flags missing assumption discussions.
+
+== Governance Model
+
+Elenchus operates as an **AUDITOR**, not a gatekeeper:
+
+- It NEVER modifies StatistEase output
+- It NEVER prevents computation
+- It ALWAYS explains WHY it raises a concern
+- It tracks its own accuracy (precision and recall of challenges)
+- It learns from user feedback (Logtalk knowledge base)
+
+== Arbitration: What Happens When They Disagree?
+
+When StatistEase and Elenchus produce different answers, **echidna** serves as
+the neutral arbitrator. echidna provides formal proof verification via GraphQL
+that neither system controls. Three-body governance:
+
+- **StatistEase** computes (Julia)
+- **Elenchus** audits (Octave + Prolog)
+- **echidna** arbitrates (formal proofs)
+
+== Requirements
+
+* **GNU Octave 8+** with the `statistics` package
+* **SWI-Prolog 9+** (for ontological reasoning)
+* **Logtalk 3+** (for knowledge base management)
+* Optional: **DeepProbLog** (for probabilistic logic)
+
+== Quick Start
+
+```bash
+octave --eval "pkg install -forge statistics"
+octave --path src/verification:src/audit:src/interface \
+       --eval "audit_from_json('/path/to/transaction.json')"
+```
+
+== License
+
+PMPL-1.0-or-later (Palimpsest License)
+
+Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk>

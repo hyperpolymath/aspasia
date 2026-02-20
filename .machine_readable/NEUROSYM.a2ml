@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk>
+#
+# NEUROSYM.a2ml — Neurosymbolic integration metadata
+#
+# Elenchus is ITSELF a neurosymbolic system — not just a calculator that
+# rechecks another calculator. The Prolog/DeepProbLog layer provides genuine
+# symbolic reasoning about statistical concepts, while DeepProbLog's learnable
+# probabilities provide the neural component.
+
+[metadata]
+version = "0.1.0"
+last-updated = "2026-02-20"
+
+[architecture]
+kautz-type = 1
+description = "Neural | Symbolic — DeepProbLog probabilistic logic + Prolog ontology + Octave numerics"
+neural-role = "DeepProbLog learnable probabilities for test appropriateness confidence"
+symbolic-role = "Prolog ontological reasoning + Octave numerical verification"
+key-insight = "The auditor is ITSELF neurosymbolic, giving it independent grounding that a pure neural challenger would lack"
+
+[independence-principle]
+# Why Elenchus must be neurosymbolic AND independent:
+# A pure neural challenger (another LLM) would just be two hallucination generators arguing.
+# A pure symbolic checker (just recomputing in Octave) would catch numerical bugs but not conceptual errors.
+# A neurosymbolic auditor catches BOTH: wrong numbers AND wrong reasoning.
+rationale = "Two neural systems arguing produces noise. One neurosymbolic system auditing another produces signal."
+
+[hypatia-config]
+scan-enabled = true
+scan-depth = "deep"
+report-format = "logtalk"
+
+[three-body-governance]
+# When StatistEase and Elenchus disagree, echidna arbitrates.
+# This prevents deadlock and ensures resolution has formal backing.
+computer = "StatistEase (Julia)"
+auditor = "Elenchus (Octave + Prolog)"
+arbitrator = "echidna (formal proofs via GraphQL)"
+resolution = "Most conservative answer + echidna formal verification"

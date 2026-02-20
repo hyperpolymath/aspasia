@@ -1,0 +1,62 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# ⚠️ STOP - CRITICAL READING REQUIRED
+
+**THIS FILE MUST BE READ FIRST BY ALL AI AGENTS**
+
+## WHAT IS THIS?
+
+This is the AI manifest for **Elenchus** — an independent neurosymbolic
+statistical auditor. Elenchus cross-checks StatistEase results using GNU
+Octave (different language, different numerical backend) and Prolog ontological
+reasoning (is this the RIGHT test?).
+
+## CRITICAL INVARIANT: INDEPENDENCE
+
+Elenchus MUST remain completely independent of StatistEase:
+- Different programming language (Octave, not Julia)
+- Different numerical backend (system LAPACK, not OpenBLAS)
+- Different reasoning engine (Prolog, not LLM tool calls)
+- Separate repository, separate maintainers, separate update cycle
+- No shared state, no shared neural weights, no shared configuration
+
+Violating independence makes Elenchus redundant rather than useful.
+
+## CANONICAL LOCATIONS
+
+### Source Code
+
+```
+src/
+├── verification/           # Octave statistical recomputation
+│   ├── descriptive_verify.m
+│   ├── inferential_verify.m
+│   ├── correlation_verify.m
+│   └── nonparametric_verify.m
+├── ontology/               # Prolog/DeepProbLog reasoning
+│   ├── statistical_ontology.pl
+│   └── deepproblog_rules.pl
+├── audit/                  # Socratic audit engine
+│   ├── socratic_engine.m
+│   └── governance.m
+├── logtalk/                # Knowledge base
+│   └── statistical_knowledge.lgt
+└── interface/              # StatistEase bridge
+    └── statistease_bridge.m
+```
+
+### Machine-Readable: `.machine_readable/` ONLY
+
+## CORE INVARIANTS
+
+1. **INDEPENDENCE** — No shared code, libraries, or state with StatistEase
+2. **AUDITOR, NOT GATEKEEPER** — Never block, always explain
+3. **No state file duplication** — `.machine_readable/` is authoritative
+4. **License** — PMPL-1.0-or-later
+5. **Author** — "Jonathan D.A. Jewell <jonathan.jewell@open.ac.uk>"
+
+## META
+
+- **Format Version:** 1.0.0
+- **Created:** 2026-02-20
+- **Maintained By:** hyperpolymath
+- **License:** PMPL-1.0-or-later

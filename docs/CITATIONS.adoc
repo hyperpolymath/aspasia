@@ -1,0 +1,36 @@
+= Elenchus - Citation Guide
+:toc:
+
+== BibTeX
+
+[source,bibtex]
+----
+@software{Elenchus_2026,
+  author = {Jewell, Jonathan},
+  title = {Elenchus},
+  year = {2026},
+  url = {https://github.com/hyperpolymath/Elenchus},
+  license = {PMPL-1.0-or-later}
+}
+----
+
+== Harvard Style
+
+Jewell, JDAJ (2026) _Elenchus_ [Computer software]. Available at: https://github.com/hyperpolymath/Elenchus
+
+== OSCOLA
+
+Jonathan D.A. Jewell, 'Elenchus' (2026) <https://github.com/hyperpolymath/Elenchus>
+
+== MLA
+
+Jewell, Jonathan "Elenchus." 2026, github.com/hyperpolymath/Elenchus.
+
+== APA 7
+
+Jewell, JDAJ (2026). _Elenchus_ [Computer software]. GitHub. https://github.com/hyperpolymath/Elenchus
+
+== See Also
+
+* link:../CITATION.cff[CITATION.cff]
+* link:../codemeta.json[codemeta.json]

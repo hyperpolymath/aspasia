@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk>
+#
+# STATE.a2ml — Project state checkpoint
+
+[metadata]
+project = "Elenchus"
+version = "0.1.0"
+last-updated = "2026-02-20"
+status = "active"
+
+[project-context]
+name = "Elenchus"
+purpose = "Independent neurosymbolic statistical auditor for StatistEase — Octave + Prolog cross-verification"
+completion-percentage = 80
+
+[position]
+phase = "implementation"
+maturity = "alpha"
+
+[route-to-mvp]
+milestones = [
+  { name = "Octave numerical verification (8 tests)", completion = 100 },
+  { name = "Prolog statistical ontology", completion = 100 },
+  { name = "DeepProbLog probabilistic rules", completion = 100 },
+  { name = "Socratic audit engine", completion = 100 },
+  { name = "Governance model", completion = 100 },
+  { name = "Logtalk knowledge base", completion = 100 },
+  { name = "StatistEase JSON bridge", completion = 100 },
+  { name = "echidna GraphQL arbitration", completion = 0 },
+  { name = "Tests", completion = 0 },
+]
+
+[ecosystem]
+part-of = ["RSR Framework", "hyperpolymath neurosymbolic stack"]
+audits = ["statistease"]
+arbitrated-by = ["echidna"]

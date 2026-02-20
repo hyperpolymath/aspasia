@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk>
+#
+# ECOSYSTEM.a2ml — Project ecosystem position
+
+[metadata]
+version = "0.1.0"
+last-updated = "2026-02-20"
+
+[project]
+name = "Elenchus"
+purpose = "Independent neurosymbolic statistical auditor — Octave recomputation + Prolog ontological reasoning"
+role = "auditor"
+
+[position-in-ecosystem]
+tier = "1"
+domain = "neurosymbolic-computing"
+
+[related-projects]
+projects = [
+  { name = "statistease", relationship = "audits", note = "Elenchus cross-checks StatistEase results" },
+  { name = "echidna", relationship = "arbitrated-by", note = "Formal proof arbitration when systems disagree" },
+  { name = "hypatia", relationship = "integration", note = "Neurosymbolic CI/CD scanning" },
+]
+
+[integration-points]
+integrations = [
+  { system = "StatistEase", direction = "inbound", protocol = "JSON transaction files", note = "Read-only pull model" },
+  { system = "echidna", direction = "outbound", protocol = "GraphQL", note = "Arbitration on disagreement" },
+]
+
+[technology-stack]
+primary-language = "GNU Octave"
+reasoning-engine = "SWI-Prolog + DeepProbLog"
+knowledge-base = "Logtalk"
+independence-from = "Julia/OpenBLAS/LLM tool calling (StatistEase stack)"
