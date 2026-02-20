@@ -1,9 +1,9 @@
 % SPDX-License-Identifier: PMPL-1.0-or-later
-% governance.m — Elenchus governance model.
+% governance.m — Aspasia governance model.
 %
 % THE AUDITOR PRINCIPLE
 % ─────────────────────
-% Elenchus is an auditor, not a gatekeeper. This distinction matters:
+% Aspasia is an auditor, not a gatekeeper. This distinction matters:
 %
 %   GATEKEEPER (what we are NOT):
 %     - Blocks computation when it disagrees
@@ -17,7 +17,7 @@
 %     - Tracks its own accuracy over time
 %     - Users WANT to consult it because it makes them more confident
 %
-% This governance model is inspired by the Socratic method: Elenchus
+% This governance model is inspired by the Socratic method: Aspasia
 % does not tell you what to think. It asks the questions that reveal
 % whether you have thought it through.
 %
@@ -33,7 +33,7 @@
 %
 % WHY THIS MATTERS
 % ────────────────
-% If StatistEase and Elenchus agree, confidence is high — two independent
+% If StatistEase and Aspasia agree, confidence is high — two independent
 % systems using different code paths reached the same answer.
 %
 % If they disagree, that is VALUABLE INFORMATION. The discrepancy reveals
@@ -43,7 +43,7 @@
 % Either way, the user wins.
 
 function model = governance_model()
-  % GOVERNANCE_MODEL  Return the Elenchus governance specification.
+  % GOVERNANCE_MODEL  Return the Aspasia governance specification.
 
   model = struct();
 
@@ -51,9 +51,9 @@ function model = governance_model()
   model.authority = 'advisory only — no veto, no blocking';
 
   model.principles = { ...
-    'INDEPENDENCE: Elenchus maintains complete separation from StatistEase'; ...
+    'INDEPENDENCE: Aspasia maintains complete separation from StatistEase'; ...
     'TRANSPARENCY: Every challenge includes its source and reasoning'; ...
-    'ACCOUNTABILITY: Elenchus tracks its own false positive rate'; ...
+    'ACCOUNTABILITY: Aspasia tracks its own false positive rate'; ...
     'SOCRATIC: Questions, not assertions — reveal gaps in reasoning'; ...
     'NON-BLOCKING: Results are always delivered; audit accompanies, never prevents'; ...
     'LEARNABLE: Logtalk knowledge base evolves from user feedback'; ...
@@ -108,7 +108,7 @@ end
 
 
 function stats = audit_accuracy_stats(audit_records)
-  % AUDIT_ACCURACY_STATS  Self-assessment of Elenchus accuracy.
+  % AUDIT_ACCURACY_STATS  Self-assessment of Aspasia accuracy.
   %
   %   How often are our challenges valid? If we cry wolf too often,
   %   users will ignore us. If we miss real issues, we fail our purpose.
@@ -158,6 +158,6 @@ function stats = audit_accuracy_stats(audit_records)
     'false_negatives', false_negatives, ...
     'precision', precision, ...
     'recall', recall, ...
-    'note', 'Elenchus tracks its own accuracy to calibrate challenge sensitivity' ...
+    'note', 'Aspasia tracks its own accuracy to calibrate challenge sensitivity' ...
   );
 end

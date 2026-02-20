@@ -2,13 +2,13 @@
 
 # Project Governance
 
-This document describes the governance model for **Elenchus**.
+This document describes the governance model for **Aspasia**.
 
 ---
 
 ## Project Governance Model
 
-Elenchus follows a **Benevolent Dictator For Life (BDFL)** governance model.
+Aspasia follows a **Benevolent Dictator For Life (BDFL)** governance model.
 This model is well-suited for solo maintainers and small project teams where rapid,
 consistent decision-making is more valuable than formal consensus processes.
 

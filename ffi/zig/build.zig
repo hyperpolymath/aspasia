@@ -1,4 +1,4 @@
-// ELENCHUS FFI Build Configuration
+// ASPASIA FFI Build Configuration
 // SPDX-License-Identifier: PMPL-1.0-or-later
 
 const std = @import("std");
@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) void {
 
     // Shared library (.so, .dylib, .dll)
     const lib = b.addSharedLibrary(.{
-        .name = "elenchus",
+        .name = "aspasia",
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
@@ -20,7 +20,7 @@ pub fn build(b: *std.Build) void {
 
     // Static library (.a)
     const lib_static = b.addStaticLibrary(.{
-        .name = "elenchus",
+        .name = "aspasia",
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
@@ -32,8 +32,8 @@ pub fn build(b: *std.Build) void {
 
     // Generate header file for C compatibility
     const header = b.addInstallHeader(
-        b.path("include/elenchus.h"),
-        "elenchus.h",
+        b.path("include/aspasia.h"),
+        "aspasia.h",
     );
     b.getInstallStep().dependOn(&header.step);
 
@@ -79,7 +79,7 @@ pub fn build(b: *std.Build) void {
 
     // Benchmark (if needed)
     const bench = b.addExecutable(.{
-        .name = "elenchus-bench",
+        .name = "aspasia-bench",
         .root_source_file = b.path("bench/bench.zig"),
         .target = target,
         .optimize = .ReleaseFast,

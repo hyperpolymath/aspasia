@@ -15,7 +15,7 @@ set dotenv-load := true
 set positional-arguments := true
 
 # Project metadata — customize these
-project := "Elenchus"
+project := "Aspasia"
 version := "0.1.0"
 tier := "infrastructure"  # 1 | 2 | infrastructure
 
@@ -42,7 +42,7 @@ help recipe="":
 
 # Show this project's info
 info:
-    @echo "Project: elenchus"
+    @echo "Project: aspasia"
     @echo "Version: {{version}}"
     @echo "RSR Tier: {{tier}}"
     @echo "Recipes: $(just --summary | wc -w)"
@@ -237,7 +237,7 @@ init:
 
 # Build the project (debug mode)
 build *args:
-    @echo "Building elenchus (debug)..."
+    @echo "Building aspasia (debug)..."
     # TODO: Replace with your build command
     # Examples:
     #   cargo build {{args}}                    # Rust
@@ -248,7 +248,7 @@ build *args:
 
 # Build in release mode with optimizations
 build-release *args:
-    @echo "Building elenchus (release)..."
+    @echo "Building aspasia (release)..."
     # TODO: Replace with your release build command
     # Examples:
     #   cargo build --release {{args}}
@@ -356,7 +356,7 @@ run-verbose *args: build
 
 # Install to user path
 install: build-release
-    @echo "Installing elenchus..."
+    @echo "Installing aspasia..."
     # TODO: Replace with your install command
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -400,7 +400,7 @@ cookbook:
     #!/usr/bin/env bash
     mkdir -p docs
     OUTPUT="docs/just-cookbook.adoc"
-    echo "= elenchus Justfile Cookbook" > "$OUTPUT"
+    echo "= aspasia Justfile Cookbook" > "$OUTPUT"
     echo ":toc: left" >> "$OUTPUT"
     echo ":toclevels: 3" >> "$OUTPUT"
     echo "" >> "$OUTPUT"
@@ -426,10 +426,10 @@ cookbook:
 man:
     #!/usr/bin/env bash
     mkdir -p docs/man
-    cat > docs/man/elenchus.1 << EOF
-    .TH elenchus 1 "$(date +%Y-%m-%d)" "{{version}}" "elenchus Manual"
+    cat > docs/man/aspasia.1 << EOF
+    .TH aspasia 1 "$(date +%Y-%m-%d)" "{{version}}" "aspasia Manual"
     .SH NAME
-    elenchus \- RSR-compliant project
+    aspasia \- RSR-compliant project
     .SH SYNOPSIS
     .B just
     [recipe] [args...]
@@ -438,7 +438,7 @@ man:
     .SH AUTHOR
     $(git config user.name 2>/dev/null || echo "Author") <$(git config user.email 2>/dev/null || echo "email")>
     EOF
-    echo "Generated: docs/man/elenchus.1"
+    echo "Generated: docs/man/aspasia.1"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONTAINERS (Podman + Wolfi)
@@ -447,19 +447,19 @@ man:
 # Build container image
 container-build tag="latest":
     @if [ -f Containerfile ]; then \
-        podman build -t elenchus:{{tag}} -f Containerfile .; \
+        podman build -t aspasia:{{tag}} -f Containerfile .; \
     else \
         echo "No Containerfile found"; \
     fi
 
 # Run container
 container-run *args:
-    podman run --rm -it elenchus:latest {{args}}
+    podman run --rm -it aspasia:latest {{args}}
 
 # Push container image
 container-push registry="ghcr.io/hyperpolymath" tag="latest":
-    podman tag elenchus:{{tag}} {{registry}}/elenchus:{{tag}}
-    podman push {{registry}}/elenchus:{{tag}}
+    podman tag aspasia:{{tag}} {{registry}}/aspasia:{{tag}}
+    podman push {{registry}}/aspasia:{{tag}}
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CI & AUTOMATION

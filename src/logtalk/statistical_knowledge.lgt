@@ -1,7 +1,7 @@
 % SPDX-License-Identifier: PMPL-1.0-or-later
-% statistical_knowledge.lgt — Logtalk learning object for Elenchus.
+% statistical_knowledge.lgt — Logtalk learning object for Aspasia.
 %
-% This is the knowledge base that evolves over time. As Elenchus audits
+% This is the knowledge base that evolves over time. As Aspasia audits
 % more transactions, it accumulates knowledge about:
 %   - Common statistical errors
 %   - Patterns of LLM misinterpretation
@@ -20,7 +20,7 @@
         version is 1:0:0,
         author is 'Jonathan D.A. Jewell',
         date is 2026-02-20,
-        comment is 'Elenchus statistical knowledge base — learns from audit history.'
+        comment is 'Aspasia statistical knowledge base — learns from audit history.'
     ]).
 
     %% ═══════════════════════════════════════════════════════════

@@ -3,7 +3,7 @@
 %
 % WHY OCTAVE AND NOT JULIA?
 % ─────────────────────────
-% StatistEase computes in Julia. Elenchus verifies in Octave. Using the same
+% StatistEase computes in Julia. Aspasia verifies in Octave. Using the same
 % language would mean the same numerical library, the same floating-point
 % paths, the same bugs. A genuine second opinion requires a genuinely
 % different implementation. Octave uses different linear algebra backends

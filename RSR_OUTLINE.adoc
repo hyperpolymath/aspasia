@@ -239,7 +239,7 @@ The STATE.a2ml file tracks project state:
 # STATE — Project State Checkpoint
 # Format: a2ml (AI-readable markup)
 
-project: Elenchus
+project: Aspasia
 version: 0.1.0
 last-updated: 2026-02-14
 status: active

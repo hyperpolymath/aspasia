@@ -2,7 +2,7 @@
 
 # Maintainers
 
-This document lists the current and former maintainers of **Elenchus**.
+This document lists the current and former maintainers of **Aspasia**.
 
 ---
 

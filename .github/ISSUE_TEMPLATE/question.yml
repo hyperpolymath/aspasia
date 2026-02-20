@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: PMPL-1.0-or-later
-# Question issue template for hyperpolymath/elenchus
+# Question issue template for hyperpolymath/aspasia
 name: Question
 description: Ask a question about usage or behaviour
 title: "[Question]: "
@@ -10,7 +10,7 @@ body:
     attributes:
       value: |
         Have a question? You can also ask in
-        [Discussions](https://github.com/hyperpolymath/elenchus/discussions)
+        [Discussions](https://github.com/hyperpolymath/aspasia/discussions)
         for broader conversations.
 
   - type: textarea

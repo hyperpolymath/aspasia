@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: PMPL-1.0-or-later
 # Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk>
 #
-# Dev Container image for Elenchus
+# Dev Container image for Aspasia
 # Base: Chainguard Wolfi (minimal, supply-chain-secure)
-# Build: podman build -t Elenchus-dev -f .devcontainer/Containerfile .
+# Build: podman build -t Aspasia-dev -f .devcontainer/Containerfile .
 
 FROM cgr.dev/chainguard/wolfi-base:latest
 
@@ -24,7 +24,7 @@ RUN groupadd -g 1000 nonroot || true \
     && useradd -m -u 1000 -g 1000 -s /bin/bash nonroot || true
 
 # Set workspace directory
-WORKDIR /workspaces/Elenchus
+WORKDIR /workspaces/Aspasia
 
 # Default shell
 ENV SHELL=/bin/bash

@@ -2,7 +2,7 @@
 % deepproblog_rules.pl — Probabilistic logic rules for statistical reasoning.
 %
 % DeepProbLog extends Prolog with neural predicates and probabilistic facts.
-% This file defines the probabilistic logic layer that gives Elenchus its
+% This file defines the probabilistic logic layer that gives Aspasia its
 % neurosymbolic reasoning capability.
 %
 % WHY DEEPPROBLOG AND NOT JUST PROLOG?

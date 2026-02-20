@@ -5,21 +5,21 @@
 
 ## WHAT IS THIS?
 
-This is the AI manifest for **Elenchus** — an independent neurosymbolic
-statistical auditor. Elenchus cross-checks StatistEase results using GNU
+This is the AI manifest for **Aspasia** — an independent neurosymbolic
+statistical auditor. Aspasia cross-checks StatistEase results using GNU
 Octave (different language, different numerical backend) and Prolog ontological
 reasoning (is this the RIGHT test?).
 
 ## CRITICAL INVARIANT: INDEPENDENCE
 
-Elenchus MUST remain completely independent of StatistEase:
+Aspasia MUST remain completely independent of StatistEase:
 - Different programming language (Octave, not Julia)
 - Different numerical backend (system LAPACK, not OpenBLAS)
 - Different reasoning engine (Prolog, not LLM tool calls)
 - Separate repository, separate maintainers, separate update cycle
 - No shared state, no shared neural weights, no shared configuration
 
-Violating independence makes Elenchus redundant rather than useful.
+Violating independence makes Aspasia redundant rather than useful.
 
 ## CANONICAL LOCATIONS
 

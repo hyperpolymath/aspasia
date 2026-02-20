@@ -1,6 +1,6 @@
 {{~ Aditionally delete this line and fill out the template below ~}}
 
-# ELENCHUS ABI/FFI Documentation
+# ASPASIA ABI/FFI Documentation
 
 ## Overview
 
@@ -26,7 +26,7 @@ This library follows the **Hyperpolymath RSR Standard** for ABI and FFI design:
                   ▼
 ┌─────────────────────────────────────────────┐
 │  C Headers (auto-generated)                 │
-│  generated/abi/elenchus.h                │
+│  generated/abi/aspasia.h                │
 └─────────────────┬───────────────────────────┘
                   │
                   │ imported by
@@ -39,7 +39,7 @@ This library follows the **Hyperpolymath RSR Standard** for ABI and FFI design:
 │  - Memory-safe by default                   │
 └─────────────────┬───────────────────────────┘
                   │
-                  │ compiled to libelenchus.so/.a
+                  │ compiled to libaspasia.so/.a
                   ▼
 ┌─────────────────────────────────────────────┐
 │  Any Language via C ABI                     │
@@ -50,7 +50,7 @@ This library follows the **Hyperpolymath RSR Standard** for ABI and FFI design:
 ## Directory Structure
 
 ```
-elenchus/
+aspasia/
 ├── src/
 │   ├── abi/                    # ABI definitions (Idris2)
 │   │   ├── Types.idr           # Core type definitions with proofs
@@ -67,11 +67,11 @@ elenchus/
 │       ├── test/
 │       │   └── integration_test.zig
 │       └── include/
-│           └── elenchus.h   # C header (optional, can be generated)
+│           └── aspasia.h   # C header (optional, can be generated)
 │
 ├── generated/                  # Auto-generated files
 │   └── abi/
-│       └── elenchus.h       # Generated from Idris2 ABI
+│       └── aspasia.h       # Generated from Idris2 ABI
 │
 └── bindings/                   # Language-specific wrappers (optional)
     ├── rust/
@@ -199,7 +199,7 @@ zig build test                    # Run tests
 
 ```bash
 cd src/abi
-idris2 --cg c-header Types.idr -o ../../generated/abi/elenchus.h
+idris2 --cg c-header Types.idr -o ../../generated/abi/aspasia.h
 ```
 
 ### Cross-Compile
@@ -222,32 +222,32 @@ zig build -Dtarget=x86_64-windows
 ### From C
 
 ```c
-#include "elenchus.h"
+#include "aspasia.h"
 
 int main() {
-    void* handle = elenchus_init();
+    void* handle = aspasia_init();
     if (!handle) return 1;
 
-    int result = elenchus_process(handle, 42);
+    int result = aspasia_process(handle, 42);
     if (result != 0) {
-        const char* err = elenchus_last_error();
+        const char* err = aspasia_last_error();
         fprintf(stderr, "Error: %s\n", err);
     }
 
-    elenchus_free(handle);
+    aspasia_free(handle);
     return 0;
 }
 ```
 
 Compile with:
 ```bash
-gcc -o example example.c -lelenchus -L./zig-out/lib
+gcc -o example example.c -laspasia -L./zig-out/lib
 ```
 
 ### From Idris2
 
 ```idris
-import ELENCHUS.ABI.Foreign
+import ASPASIA.ABI.Foreign
 
 main : IO ()
 main = do
@@ -264,22 +264,22 @@ main = do
 ### From Rust
 
 ```rust
-#[link(name = "elenchus")]
+#[link(name = "aspasia")]
 extern "C" {
-    fn elenchus_init() -> *mut std::ffi::c_void;
-    fn elenchus_free(handle: *mut std::ffi::c_void);
-    fn elenchus_process(handle: *mut std::ffi::c_void, input: u32) -> i32;
+    fn aspasia_init() -> *mut std::ffi::c_void;
+    fn aspasia_free(handle: *mut std::ffi::c_void);
+    fn aspasia_process(handle: *mut std::ffi::c_void, input: u32) -> i32;
 }
 
 fn main() {
     unsafe {
-        let handle = elenchus_init();
+        let handle = aspasia_init();
         assert!(!handle.is_null());
 
-        let result = elenchus_process(handle, 42);
+        let result = aspasia_process(handle, 42);
         assert_eq!(result, 0);
 
-        elenchus_free(handle);
+        aspasia_free(handle);
     }
 }
 ```
@@ -287,21 +287,21 @@ fn main() {
 ### From Julia
 
 ```julia
-const libelenchus = "libelenchus"
+const libaspasia = "libaspasia"
 
 function init()
-    handle = ccall((:elenchus_init, libelenchus), Ptr{Cvoid}, ())
+    handle = ccall((:aspasia_init, libaspasia), Ptr{Cvoid}, ())
     handle == C_NULL && error("Failed to initialize")
     handle
 end
 
 function process(handle, input)
-    result = ccall((:elenchus_process, libelenchus), Cint, (Ptr{Cvoid}, UInt32), handle, input)
+    result = ccall((:aspasia_process, libaspasia), Cint, (Ptr{Cvoid}, UInt32), handle, input)
     result
 end
 
 function cleanup(handle)
-    ccall((:elenchus_free, libelenchus), Cvoid, (Ptr{Cvoid},), handle)
+    ccall((:aspasia_free, libaspasia), Cvoid, (Ptr{Cvoid},), handle)
 end
 
 # Usage
@@ -355,7 +355,7 @@ When modifying the ABI/FFI:
 
 2. **Generate C header**
    ```bash
-   idris2 --cg c-header src/abi/Types.idr -o generated/abi/elenchus.h
+   idris2 --cg c-header src/abi/Types.idr -o generated/abi/aspasia.h
    ```
 
 3. **Update FFI implementation** (`ffi/zig/src/main.zig`)

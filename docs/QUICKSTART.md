@@ -21,8 +21,8 @@ just init       # interactive placeholder replacement
 ## Clone and Setup (Existing Project)
 
 ```bash
-git clone https://github.com/hyperpolymath/elenchus.git
-cd elenchus
+git clone https://github.com/hyperpolymath/aspasia.git
+cd aspasia
 just deps
 ```
 
@@ -60,5 +60,5 @@ docs/        # Documentation
 If `just deps` fails, ensure your toolchain version matches the
 project requirements listed in the `Justfile` or `.machine_readable/ECOSYSTEM.a2ml`.
 
-Open a [Discussion](https://github.com/hyperpolymath/elenchus/discussions)
+Open a [Discussion](https://github.com/hyperpolymath/aspasia/discussions)
 if you get stuck.

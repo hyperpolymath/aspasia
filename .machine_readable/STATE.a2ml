@@ -4,13 +4,13 @@
 # STATE.a2ml — Project state checkpoint
 
 [metadata]
-project = "Elenchus"
+project = "Aspasia"
 version = "0.1.0"
 last-updated = "2026-02-20"
 status = "active"
 
 [project-context]
-name = "Elenchus"
+name = "Aspasia"
 purpose = "Independent neurosymbolic statistical auditor for StatistEase — Octave + Prolog cross-verification"
 completion-percentage = 80
 

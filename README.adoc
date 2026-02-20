@@ -1,8 +1,21 @@
-= Elenchus — Independent Neurosymbolic Statistical Auditor
+= Aspasia — Independent Neurosymbolic Statistical Auditor
 :author: Jonathan D.A. Jewell
 :email: jonathan.jewell@open.ac.uk
 :license: PMPL-1.0-or-later
 :toc:
+
+== The Name
+
+**Aspasia of Miletus** (~470-400 BCE) taught Socrates the art of rhetoric and
+dialectic. Plato credits her in the _Menexenus_; Plutarch describes her as a
+thinker consulted on matters of state. She didn't cross-examine for sport —
+she sharpened others' reasoning constructively.
+
+This system is named for her because it corrects the corrector. StatistEase
+uses Socratic method (LLM routes questions, Julia answers). Aspasia audits
+that entire process — the teacher checking the student's work. And like her
+namesake, Aspasia is not an annoying gadfly. She is a wise advisor who helps
+you feel _more confident_ in your results, not less.
 
 == Why Does This Exist?
 
@@ -20,7 +33,7 @@ But three problems remain:
    Cohen's d is 0.35. That's small-to-medium. The number was correct; the
    _interpretation_ was not.
 
-Elenchus solves all three by providing an **independent neurosymbolic audit**
+Aspasia solves all three by providing an **independent neurosymbolic audit**
 from a completely separate codebase, in a completely different language, using
 a completely different reasoning engine.
 
@@ -31,7 +44,7 @@ overcomplicated — it is the *minimum* necessary for genuine independence:
 
 [cols="1,1,1"]
 |===
-|Property |StatistEase (Julia) |Elenchus (GNU Octave)
+|Property |StatistEase (Julia) |Aspasia (GNU Octave)
 
 |Numerical backend |OpenBLAS |LAPACK/BLAS (system)
 |Sorting algorithm |Julia's QuickSort |Octave's std::sort
@@ -57,7 +70,7 @@ competing toward the same goal — correctness — makes both systems better.
 == Architecture
 
 ```
-StatistEase                          Elenchus
+StatistEase                          Aspasia
 ┌────────────────────┐              ┌────────────────────┐
 │  Julia computation │              │  Octave recompute  │
 │  (the numbers)     │──── JSON ───►│  (same data, diff  │
@@ -92,7 +105,7 @@ StatistEase                          Elenchus
 
 "Did the computation produce the correct numbers?"
 
-Elenchus independently recomputes every statistical result using GNU Octave.
+Aspasia independently recomputes every statistical result using GNU Octave.
 Different language, different BLAS, different floating-point code paths. If
 the results match within tolerance (1e-10), the numbers are verified.
 
@@ -117,7 +130,7 @@ with large N, and flags missing assumption discussions.
 
 == Governance Model
 
-Elenchus operates as an **AUDITOR**, not a gatekeeper:
+Aspasia operates as an **AUDITOR**, not a gatekeeper:
 
 - It NEVER modifies StatistEase output
 - It NEVER prevents computation
@@ -125,15 +138,49 @@ Elenchus operates as an **AUDITOR**, not a gatekeeper:
 - It tracks its own accuracy (precision and recall of challenges)
 - It learns from user feedback (Logtalk knowledge base)
 
-== Arbitration: What Happens When They Disagree?
+== What Happens When They Disagree?
 
-When StatistEase and Elenchus produce different answers, **echidna** serves as
-the neutral arbitrator. echidna provides formal proof verification via GraphQL
-that neither system controls. Three-body governance:
+A disagreement between two independent systems is not a failure — it is
+*information*. The magnitude, location, and nature of the disagreement
+tells you something about your data that neither system alone could reveal.
+
+=== Resolution Ladder (automated, 6 steps)
+
+Before asking a human, Aspasia runs a systematic resolution protocol:
+
+[cols="1,3,1"]
+|===
+|Step |Method |Confidence
+
+|1 |**NIST StRD reference values** — certified answers to 15+ digits (McCullough & Wilson 1999) |Definitive
+|2 |**Arbitrary precision recomputation** — Neumaier compensated summation at extended precision |High
+|3 |**Interval arithmetic** — guaranteed enclosures; if both values fall inside, they're compatible |High
+|4 |**Perturbation analysis** — jitter inputs by 1 ULP; if output swings wildly, the problem is ill-conditioned and *neither answer is reliable* |Diagnostic
+|5 |**Symbolic verification** — compute exact answer via sorted summation or CAS (Maxima) |Definitive
+|6 |**Escalate to human** — with FULL evidence from steps 1-5 and both systems' working |Last resort
+|===
+
+Most disagreements resolve at steps 1-3. Step 4 is particularly valuable:
+when it triggers, it means the data itself doesn't support the precision being
+claimed — that's a finding about the research, not a bug in the software.
+
+=== Three-Body Governance
+
+When the resolution ladder exhausts automated methods:
 
 - **StatistEase** computes (Julia)
-- **Elenchus** audits (Octave + Prolog)
-- **echidna** arbitrates (formal proofs)
+- **Aspasia** audits (Octave + Prolog)
+- **echidna** arbitrates (formal proofs via GraphQL)
+
+If echidna cannot resolve the dispute (because it's a judgment call, not a
+mathematical fact), the system escalates to the human with full evidence
+from all three systems. It says:
+
+> "We tried our best but we are coming up against conflicts. Here is
+> everything we checked, everything we found, and what each system thinks.
+> You need to decide."
+
+This is honest. It is more useful than silently picking one answer.
 
 == Requirements
 

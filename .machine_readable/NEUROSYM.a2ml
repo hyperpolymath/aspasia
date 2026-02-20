@@ -3,7 +3,7 @@
 #
 # NEUROSYM.a2ml — Neurosymbolic integration metadata
 #
-# Elenchus is ITSELF a neurosymbolic system — not just a calculator that
+# Aspasia is ITSELF a neurosymbolic system — not just a calculator that
 # rechecks another calculator. The Prolog/DeepProbLog layer provides genuine
 # symbolic reasoning about statistical concepts, while DeepProbLog's learnable
 # probabilities provide the neural component.
@@ -20,7 +20,7 @@ symbolic-role = "Prolog ontological reasoning + Octave numerical verification"
 key-insight = "The auditor is ITSELF neurosymbolic, giving it independent grounding that a pure neural challenger would lack"
 
 [independence-principle]
-# Why Elenchus must be neurosymbolic AND independent:
+# Why Aspasia must be neurosymbolic AND independent:
 # A pure neural challenger (another LLM) would just be two hallucination generators arguing.
 # A pure symbolic checker (just recomputing in Octave) would catch numerical bugs but not conceptual errors.
 # A neurosymbolic auditor catches BOTH: wrong numbers AND wrong reasoning.
@@ -32,9 +32,9 @@ scan-depth = "deep"
 report-format = "logtalk"
 
 [three-body-governance]
-# When StatistEase and Elenchus disagree, echidna arbitrates.
+# When StatistEase and Aspasia disagree, echidna arbitrates.
 # This prevents deadlock and ensures resolution has formal backing.
 computer = "StatistEase (Julia)"
-auditor = "Elenchus (Octave + Prolog)"
+auditor = "Aspasia (Octave + Prolog)"
 arbitrator = "echidna (formal proofs via GraphQL)"
 resolution = "Most conservative answer + echidna formal verification"

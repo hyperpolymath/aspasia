@@ -1,34 +1,34 @@
-= Elenchus - Citation Guide
+= Aspasia - Citation Guide
 :toc:
 
 == BibTeX
 
 [source,bibtex]
 ----
-@software{Elenchus_2026,
+@software{Aspasia_2026,
   author = {Jewell, Jonathan},
-  title = {Elenchus},
+  title = {Aspasia},
   year = {2026},
-  url = {https://github.com/hyperpolymath/Elenchus},
+  url = {https://github.com/hyperpolymath/Aspasia},
   license = {PMPL-1.0-or-later}
 }
 ----
 
 == Harvard Style
 
-Jewell, JDAJ (2026) _Elenchus_ [Computer software]. Available at: https://github.com/hyperpolymath/Elenchus
+Jewell, JDAJ (2026) _Aspasia_ [Computer software]. Available at: https://github.com/hyperpolymath/Aspasia
 
 == OSCOLA
 
-Jonathan D.A. Jewell, 'Elenchus' (2026) <https://github.com/hyperpolymath/Elenchus>
+Jonathan D.A. Jewell, 'Aspasia' (2026) <https://github.com/hyperpolymath/Aspasia>
 
 == MLA
 
-Jewell, Jonathan "Elenchus." 2026, github.com/hyperpolymath/Elenchus.
+Jewell, Jonathan "Aspasia." 2026, github.com/hyperpolymath/Aspasia.
 
 == APA 7
 
-Jewell, JDAJ (2026). _Elenchus_ [Computer software]. GitHub. https://github.com/hyperpolymath/Elenchus
+Jewell, JDAJ (2026). _Aspasia_ [Computer software]. GitHub. https://github.com/hyperpolymath/Aspasia
 
 == See Also
 

@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: PMPL-1.0-or-later
 # Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk>
 #
-# Containerfile for Elenchus
-# Build: podman build -t elenchus:latest -f Containerfile .
-# Run:   podman run --rm -it elenchus:latest
-# Seal:  selur seal elenchus:latest
+# Containerfile for Aspasia
+# Build: podman build -t aspasia:latest -f Containerfile .
+# Run:   podman run --rm -it aspasia:latest
+# Seal:  selur seal aspasia:latest
 
 # --- Build stage ---
 FROM cgr.dev/chainguard/wolfi-base:latest AS build
@@ -30,12 +30,12 @@ FROM cgr.dev/chainguard/static:latest
 # Copy built artifact from build stage
 # TODO: Replace with your binary/artifact path
 # Examples:
-#   COPY --from=build /build/target/release/elenchus /usr/local/bin/
-#   COPY --from=build /build/_build/prod/rel/elenchus /app/
-#   COPY --from=build /build/zig-out/bin/elenchus /usr/local/bin/
+#   COPY --from=build /build/target/release/aspasia /usr/local/bin/
+#   COPY --from=build /build/_build/prod/rel/aspasia /app/
+#   COPY --from=build /build/zig-out/bin/aspasia /usr/local/bin/
 
 # Non-root user (chainguard images default to nonroot)
 USER nonroot
 
 # TODO: Replace with your entrypoint
-# ENTRYPOINT ["/usr/local/bin/elenchus"]
+# ENTRYPOINT ["/usr/local/bin/aspasia"]

@@ -21,7 +21,7 @@
 
 [source,text]
 ----
-Set up Elenchus from https://github.com/hyperpolymath/elenchus
+Set up Aspasia from https://github.com/hyperpolymath/aspasia
 ----
 
 **The URL is the spec.** The AI fetches this repo, reads the installation guide inside it, and handles everything. You answer a few questions and confirm the privacy notice. No commands to type, no installers to figure out, no docs to read.
@@ -40,7 +40,7 @@ The AI handles:
 
 === Other Ways to Say It
 
-If your AI already knows about Elenchus (web search, training data), shorter versions work:
+If your AI already knows about Aspasia (web search, training data), shorter versions work:
 
 // [TODO-AI-INSTALL] Replace with natural-language variations specific to your project.
 // Delete this comment block and replace:
@@ -50,7 +50,7 @@ If your AI already knows about Elenchus (web search, training data), shorter ver
 
 If it doesn't know the project, just include the URL:
 
-* "Set up https://github.com/hyperpolymath/elenchus on my machine"
+* "Set up https://github.com/hyperpolymath/aspasia on my machine"
 
 === What You'll Be Asked
 
@@ -72,11 +72,11 @@ That's it. Everything else is automatic.
 // [TODO-AI-INSTALL] Same privacy notice as in the AI_INSTALLATION_GUIDE.adoc.
 // Delete this comment block and replace:
 
-**What Elenchus does:**
+**What Aspasia does:**
 
 * [TODO-AI-INSTALL: What it does]
 
-**What Elenchus does NOT do:**
+**What Aspasia does NOT do:**
 
 * [TODO-AI-INSTALL: What it does NOT do]
 
@@ -95,7 +95,7 @@ That's it. Everything else is automatic.
 
 === Uninstall
 
-Tell your AI: "Remove Elenchus from my system"
+Tell your AI: "Remove Aspasia from my system"
 
 === Troubleshooting
 

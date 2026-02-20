@@ -1,13 +1,13 @@
 <!-- SPDX-License-Identifier: PMPL-1.0-or-later -->
 <!-- Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk> -->
 
-# Threat Model: Elenchus
+# Threat Model: Aspasia
 
 ## Document Info
 
 | Field         | Value                          |
 |---------------|--------------------------------|
-| Project       | Elenchus               |
+| Project       | Aspasia               |
 | Version       | 1.0                            |
 | Last Reviewed | 2026-02-20                       |
 | Author        | Jonathan D.A. Jewell                     |
@@ -33,7 +33,7 @@
 
 ## System Overview
 
-Brief description of Elenchus and its architecture.
+Brief description of Aspasia and its architecture.
 
 > See [TOPOLOGY.md](../TOPOLOGY.md) for the full architecture diagram and completion dashboard.
 

@@ -8,7 +8,7 @@ version = "0.1.0"
 last-updated = "2026-02-20"
 
 [project]
-name = "Elenchus"
+name = "Aspasia"
 purpose = "Independent neurosymbolic statistical auditor — Octave recomputation + Prolog ontological reasoning"
 role = "auditor"
 
@@ -18,7 +18,7 @@ domain = "neurosymbolic-computing"
 
 [related-projects]
 projects = [
-  { name = "statistease", relationship = "audits", note = "Elenchus cross-checks StatistEase results" },
+  { name = "statistease", relationship = "audits", note = "Aspasia cross-checks StatistEase results" },
   { name = "echidna", relationship = "arbitrated-by", note = "Formal proof arbitration when systems disagree" },
   { name = "hypatia", relationship = "integration", note = "Neurosymbolic CI/CD scanning" },
 ]

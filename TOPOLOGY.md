@@ -1,8 +1,8 @@
 <!-- SPDX-License-Identifier: PMPL-1.0-or-later -->
-<!-- TOPOLOGY.md — Elenchus architecture map and completion dashboard -->
+<!-- TOPOLOGY.md — Aspasia architecture map and completion dashboard -->
 <!-- Last updated: 2026-02-20 -->
 
-# Elenchus — Project Topology
+# Aspasia — Project Topology
 
 ## System Architecture
 
@@ -14,7 +14,7 @@
                              │ JSON transaction
                              ▼
               ┌─────────────────────────────────┐
-              │          ELENCHUS (Octave)       │
+              │          ASPASIA (Octave)       │
               │   Independent Neurosymbolic      │
               │   Statistical Auditor            │
               │                                  │
@@ -53,7 +53,7 @@
 ## Three-Body Governance
 
 ```
-         StatistEase ◄──────────── echidna ──────────────► Elenchus
+         StatistEase ◄──────────── echidna ──────────────► Aspasia
          (computes)                 (arbitrates)            (audits)
               │                        ▲                       │
               └────────── disagree? ───┘────── disagree? ──────┘
@@ -85,18 +85,26 @@ AUDIT ENGINE
   Logtalk knowledge base             ██████████ 100%    Learning + self-tracking
   StatistEase bridge                 ██████████ 100%    JSON transaction reader
 
+RESOLUTION LADDER
+  NIST StRD reference check          ██████████ 100%    Certified values (McCullough)
+  Arbitrary precision recompute      ██████████ 100%    Neumaier compensated summation
+  Interval arithmetic enclosure      ██████████ 100%    Conservative rounding analysis
+  Perturbation / sensitivity         ██████████ 100%    Ill-conditioning detection
+  Symbolic verification              ██████████ 100%    Exact sorted summation
+  Human escalation report            ██████████ 100%    Full evidence trail
+
 PLANNED
   echidna arbitration                ░░░░░░░░░░   0%    GraphQL integration
   Tests                              ░░░░░░░░░░   0%    Not yet written
 
 ─────────────────────────────────────────────────────────────────────────────
-OVERALL:                            ████████░░  80%    Core audit engine complete
+OVERALL:                            █████████░  90%    Core engine + resolution complete
 ```
 
 ## Key Dependencies
 
 ```
-GNU Octave ──► Elenchus ──► SWI-Prolog ──► Logtalk
+GNU Octave ──► Aspasia ──► SWI-Prolog ──► Logtalk
                   │
                   ├──► StatistEase (JSON read-only)
                   └──► echidna (arbitration, planned)

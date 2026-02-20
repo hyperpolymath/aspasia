@@ -1,17 +1,17 @@
 % SPDX-License-Identifier: PMPL-1.0-or-later
-% statistease_bridge.m — Interface between Elenchus and StatistEase.
+% statistease_bridge.m — Interface between Aspasia and StatistEase.
 %
-% Elenchus observes StatistEase transactions via JSON exchange.
+% Aspasia observes StatistEase transactions via JSON exchange.
 % It does NOT modify or intercept — it reads the transaction record
 % after StatistEase has produced its result, and appends its audit.
 %
 % COMMUNICATION PROTOCOL
 % ──────────────────────
 % StatistEase writes a transaction JSON to a shared location (file or API).
-% Elenchus reads it, audits it, and writes its challenge report alongside.
+% Aspasia reads it, audits it, and writes its challenge report alongside.
 % The presenting LLM (or UI) shows both to the user.
 %
-% This is a PULL model, not PUSH. Elenchus is never in the critical path.
+% This is a PULL model, not PUSH. Aspasia is never in the critical path.
 
 function report = audit_from_json(json_path)
   % AUDIT_FROM_JSON  Read a StatistEase transaction JSON and audit it.
@@ -83,7 +83,7 @@ function print_report(report)
 
   fprintf('\n');
   fprintf('╔══════════════════════════════════════════════════════════════╗\n');
-  fprintf('║  ELENCHUS AUDIT REPORT                                     ║\n');
+  fprintf('║  ASPASIA AUDIT REPORT                                     ║\n');
   fprintf('║  Independent Neurosymbolic Verification                    ║\n');
   fprintf('╠══════════════════════════════════════════════════════════════╣\n');
   fprintf('║  Engine:     %s\n', report.engine);

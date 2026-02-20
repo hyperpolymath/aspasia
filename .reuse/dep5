@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Elenchus
+Upstream-Name: Aspasia
 Upstream-Contact: Jonathan D.A. Jewell <jonathan.jewell@open.ac.uk>
-Source: https://github.com/hyperpolymath/elenchus
+Source: https://github.com/hyperpolymath/aspasia
 
 # Default: all files are PMPL-1.0-or-later
 Files: *

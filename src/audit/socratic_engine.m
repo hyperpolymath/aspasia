@@ -1,7 +1,7 @@
 % SPDX-License-Identifier: PMPL-1.0-or-later
 % socratic_engine.m — The Socratic audit engine.
 %
-% This is the heart of Elenchus. It intercepts a StatistEase transaction
+% This is the heart of Aspasia. It intercepts a StatistEase transaction
 % (input data + selected test + computed result + LLM explanation) and
 % subjects it to cross-examination from three independent sources:
 %
@@ -17,12 +17,12 @@
 %      "Does the LLM's explanation accurately represent the result?"
 %      → Cross-references effect size labels, p-value language, etc.
 %
-% The output is a CHALLENGE REPORT, not a veto. Elenchus raises concerns;
+% The output is a CHALLENGE REPORT, not a veto. Aspasia raises concerns;
 % it does not block computation. The user sees both the result and the audit.
 %
 % GOVERNANCE MODEL
 % ────────────────
-% Elenchus operates as an AUDITOR, not a gatekeeper:
+% Aspasia operates as an AUDITOR, not a gatekeeper:
 %   - It NEVER modifies StatistEase output
 %   - It NEVER prevents computation
 %   - It ALWAYS explains WHY it raises a concern
@@ -236,7 +236,7 @@ function report = audit_transaction(transaction)
     'ontological_ok', ontological_ok, ...
     'interpretation_ok', interpretation_ok, ...
     'summary', summary, ...
-    'engine', 'Elenchus (GNU Octave + Prolog)', ...
+    'engine', 'Aspasia (GNU Octave + Prolog)', ...
     'governance', 'auditor (non-blocking)' ...
   );
 end

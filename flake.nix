@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: PMPL-1.0-or-later
 # Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <jonathan.jewell@open.ac.uk>
 #
-# Nix flake for Elenchus
+# Nix flake for Aspasia
 #
 # NOTE: guix.scm is the PRIMARY development environment. This flake is provided
 # as a FALLBACK for contributors who use Nix instead of Guix. The .envrc checks
@@ -16,10 +16,10 @@
 # With direnv (.envrc already configured):
 #   direnv allow         # Auto-enters shell on cd
 #
-# TODO: Replace Elenchus and {{PROJECT_DESCRIPTION}} with actual values.
+# TODO: Replace Aspasia and {{PROJECT_DESCRIPTION}} with actual values.
 
 {
-  description = "Elenchus — RSR-compliant project";
+  description = "Aspasia — RSR-compliant project";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -92,19 +92,19 @@
         # Development shell — `nix develop`
         # ---------------------------------------------------------------
         devShells.default = pkgs.mkShell {
-          name = "Elenchus-dev";
+          name = "Aspasia-dev";
 
           buildInputs = commonTools ++ languageTools;
 
           # Environment variables available inside the shell.
           env = {
-            PROJECT_NAME = "Elenchus";
+            PROJECT_NAME = "Aspasia";
             RSR_TIER = "infrastructure";
           };
 
           shellHook = ''
             echo ""
-            echo "  Elenchus — development shell"
+            echo "  Aspasia — development shell"
             echo "  Nix:    $(nix --version 2>/dev/null || echo 'unknown')"
             echo "  Just:   $(just --version 2>/dev/null || echo 'not found')"
             echo ""
@@ -116,7 +116,7 @@
             # consistent whether you enter via 'nix develop' or 'direnv allow'.
             if [ -z "''${DIRENV_IN_ENVRC:-}" ] && [ -f .envrc ]; then
               # Only source the non-nix parts to avoid recursion.
-              export PROJECT_NAME="Elenchus"
+              export PROJECT_NAME="Aspasia"
               export RSR_TIER="infrastructure"
               if [ -f .env ]; then
                 set -a
@@ -131,7 +131,7 @@
         # Package — `nix build`
         # ---------------------------------------------------------------
         packages.default = pkgs.stdenv.mkDerivation {
-          pname = "Elenchus";
+          pname = "Aspasia";
           version = "0.1.0";
 
           src = self;
@@ -149,7 +149,7 @@
           #   buildPhase = "zig build -Doptimize=ReleaseSafe";
 
           buildPhase = ''
-            echo "TODO: Add build commands for Elenchus"
+            echo "TODO: Add build commands for Aspasia"
           '';
 
           installPhase = ''
@@ -159,7 +159,7 @@
 
           meta = with pkgs.lib; {
             description = "{{PROJECT_DESCRIPTION}}";
-            homepage = "https://github.com/hyperpolymath/Elenchus";
+            homepage = "https://github.com/hyperpolymath/Aspasia";
             license = licenses.mpl20; # PMPL-1.0-or-later extends MPL-2.0
             maintainers = [];
             platforms = [ "x86_64-linux" "aarch64-linux" ];

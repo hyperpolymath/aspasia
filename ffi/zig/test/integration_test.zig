@@ -1,4 +1,4 @@
-// ELENCHUS Integration Tests
+// ASPASIA Integration Tests
 // SPDX-License-Identifier: PMPL-1.0-or-later
 //
 // These tests verify that the Zig FFI correctly implements the Idris2 ABI
@@ -7,36 +7,36 @@ const std = @import("std");
 const testing = std.testing;
 
 // Import FFI functions
-extern fn elenchus_init() ?*opaque {};
-extern fn elenchus_free(?*opaque {}) void;
-extern fn elenchus_process(?*opaque {}, u32) c_int;
-extern fn elenchus_get_string(?*opaque {}) ?[*:0]const u8;
-extern fn elenchus_free_string(?[*:0]const u8) void;
-extern fn elenchus_last_error() ?[*:0]const u8;
-extern fn elenchus_version() [*:0]const u8;
-extern fn elenchus_is_initialized(?*opaque {}) u32;
+extern fn aspasia_init() ?*opaque {};
+extern fn aspasia_free(?*opaque {}) void;
+extern fn aspasia_process(?*opaque {}, u32) c_int;
+extern fn aspasia_get_string(?*opaque {}) ?[*:0]const u8;
+extern fn aspasia_free_string(?[*:0]const u8) void;
+extern fn aspasia_last_error() ?[*:0]const u8;
+extern fn aspasia_version() [*:0]const u8;
+extern fn aspasia_is_initialized(?*opaque {}) u32;
 
 //==============================================================================
 // Lifecycle Tests
 //==============================================================================
 
 test "create and destroy handle" {
-    const handle = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(handle);
+    const handle = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(handle);
 
     try testing.expect(handle != null);
 }
 
 test "handle is initialized" {
-    const handle = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(handle);
+    const handle = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(handle);
 
-    const initialized = elenchus_is_initialized(handle);
+    const initialized = aspasia_is_initialized(handle);
     try testing.expectEqual(@as(u32, 1), initialized);
 }
 
 test "null handle is not initialized" {
-    const initialized = elenchus_is_initialized(null);
+    const initialized = aspasia_is_initialized(null);
     try testing.expectEqual(@as(u32, 0), initialized);
 }
 
@@ -45,15 +45,15 @@ test "null handle is not initialized" {
 //==============================================================================
 
 test "process with valid handle" {
-    const handle = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(handle);
+    const handle = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(handle);
 
-    const result = elenchus_process(handle, 42);
+    const result = aspasia_process(handle, 42);
     try testing.expectEqual(@as(c_int, 0), result); // 0 = ok
 }
 
 test "process with null handle returns error" {
-    const result = elenchus_process(null, 42);
+    const result = aspasia_process(null, 42);
     try testing.expectEqual(@as(c_int, 4), result); // 4 = null_pointer
 }
 
@@ -62,17 +62,17 @@ test "process with null handle returns error" {
 //==============================================================================
 
 test "get string result" {
-    const handle = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(handle);
+    const handle = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(handle);
 
-    const str = elenchus_get_string(handle);
-    defer if (str) |s| elenchus_free_string(s);
+    const str = aspasia_get_string(handle);
+    defer if (str) |s| aspasia_free_string(s);
 
     try testing.expect(str != null);
 }
 
 test "get string with null handle" {
-    const str = elenchus_get_string(null);
+    const str = aspasia_get_string(null);
     try testing.expect(str == null);
 }
 
@@ -81,9 +81,9 @@ test "get string with null handle" {
 //==============================================================================
 
 test "last error after null handle operation" {
-    _ = elenchus_process(null, 0);
+    _ = aspasia_process(null, 0);
 
-    const err = elenchus_last_error();
+    const err = aspasia_last_error();
     try testing.expect(err != null);
 
     if (err) |e| {
@@ -93,10 +93,10 @@ test "last error after null handle operation" {
 }
 
 test "no error after successful operation" {
-    const handle = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(handle);
+    const handle = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(handle);
 
-    _ = elenchus_process(handle, 0);
+    _ = aspasia_process(handle, 0);
 
     // Error should be cleared after successful operation
     // (This depends on implementation)
@@ -107,14 +107,14 @@ test "no error after successful operation" {
 //==============================================================================
 
 test "version string is not empty" {
-    const ver = elenchus_version();
+    const ver = aspasia_version();
     const ver_str = std.mem.span(ver);
 
     try testing.expect(ver_str.len > 0);
 }
 
 test "version string is semantic version format" {
-    const ver = elenchus_version();
+    const ver = aspasia_version();
     const ver_str = std.mem.span(ver);
 
     // Should be in format X.Y.Z
@@ -126,28 +126,28 @@ test "version string is semantic version format" {
 //==============================================================================
 
 test "multiple handles are independent" {
-    const h1 = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(h1);
+    const h1 = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(h1);
 
-    const h2 = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(h2);
+    const h2 = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(h2);
 
     try testing.expect(h1 != h2);
 
     // Operations on h1 should not affect h2
-    _ = elenchus_process(h1, 1);
-    _ = elenchus_process(h2, 2);
+    _ = aspasia_process(h1, 1);
+    _ = aspasia_process(h2, 2);
 }
 
 test "double free is safe" {
-    const handle = elenchus_init() orelse return error.InitFailed;
+    const handle = aspasia_init() orelse return error.InitFailed;
 
-    elenchus_free(handle);
-    elenchus_free(handle); // Should not crash
+    aspasia_free(handle);
+    aspasia_free(handle); // Should not crash
 }
 
 test "free null is safe" {
-    elenchus_free(null); // Should not crash
+    aspasia_free(null); // Should not crash
 }
 
 //==============================================================================
@@ -155,8 +155,8 @@ test "free null is safe" {
 //==============================================================================
 
 test "concurrent operations" {
-    const handle = elenchus_init() orelse return error.InitFailed;
-    defer elenchus_free(handle);
+    const handle = aspasia_init() orelse return error.InitFailed;
+    defer aspasia_free(handle);
 
     const ThreadContext = struct {
         h: *opaque {},
@@ -165,7 +165,7 @@ test "concurrent operations" {
 
     const thread_fn = struct {
         fn run(ctx: ThreadContext) void {
-            _ = elenchus_process(ctx.h, ctx.id);
+            _ = aspasia_process(ctx.h, ctx.id);
         }
     }.run;
 
