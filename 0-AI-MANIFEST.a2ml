@@ -52,7 +52,7 @@ src/
 2. **AUDITOR, NOT GATEKEEPER** — Never block, always explain
 3. **No state file duplication** — `.machine_readable/` is authoritative
 4. **License** — PMPL-1.0-or-later
-5. **Author** — "Jonathan D.A. Jewell <jonathan.jewell@open.ac.uk>"
+5. **Author** — "Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"
 
 ## META
 
