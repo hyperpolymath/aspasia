@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: PMPL-1.0-or-later
+# Clade declaration — part of the gv-clade-index registry
+# See: https://github.com/hyperpolymath/gv-clade-index
+
+[identity]
+uuid = "f4ed948f-44db-54cf-a230-09ae84402927"
+primary-forge = "github"
+primary-owner = "hyperpolymath"
+canonical-name = "aspasia"
+prefixed-name = "dx-aspasia"
+
+[clade]
+primary = "dx"
+secondary = []
+assigned = "2026-03-16"
+rationale = ""
+
+[forges]
+github = "hyperpolymath/aspasia"
+gitlab = "hyperpolymath/aspasia"
+bitbucket = "hyperpolymath/aspasia"
+
+[lineage]
+type = "standalone"
+parent = "Developer tool"
+born = "2026-03-16"
