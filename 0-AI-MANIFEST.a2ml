@@ -46,6 +46,28 @@ src/
 
 ### Machine-Readable: `.machine_readable/` ONLY
 
+## Calling ECHIDNA via BoJ
+
+All ECHIDNA invocations go through the `echidna-llm-mcp` BoJ cartridge.
+**Never call ECHIDNA directly — always go through BoJ.**
+
+| Tool | Description |
+|------|-------------|
+| `echidna_list_provers` | Discover all 105 provers with tier/category/complexity |
+| `echidna_prove` | Invoke a prover on a file path (auto-detects from extension) |
+| `echidna_verify` | Verify inline proof content as a string |
+| `echidna_search` | Keyword search over the 66,674-proof corpus |
+| `echidna_suggest_tactics` | Advisory tactic suggestions for a goal |
+| `echidna_rank_provers` | Advisory prover ranking for a theorem |
+
+```json
+{ "tool": "echidna_list_provers", "args": {} }
+{ "tool": "echidna_prove", "args": { "file": "/path/to/proof.lean", "prover": "Lean" } }
+{ "tool": "echidna_suggest_tactics", "args": { "goal": "n + 0 = n", "prover": "Lean" } }
+```
+
+Full protocol: `boj-server/cartridges/echidna-llm-mcp/docs/CALL-PROTOCOL.adoc`
+
 ## CORE INVARIANTS
 
 1. **INDEPENDENCE** — No shared code, libraries, or state with StatistEase
