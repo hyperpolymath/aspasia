@@ -1,4 +1,4 @@
-% SPDX-License-Identifier: PMPL-1.0-or-later
+% SPDX-License-Identifier: MPL-2.0
 % socratic_engine.m — The Socratic audit engine.
 %
 % This is the heart of Aspasia. It intercepts a StatistEase transaction

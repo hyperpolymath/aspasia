@@ -1,7 +1,7 @@
 = Aspasia — Independent Neurosymbolic Statistical Auditor
 :author: Jonathan D.A. Jewell
 :email: j.d.a.jewell@open.ac.uk
-:license: PMPL-1.0-or-later
+:license: MPL-2.0
 :toc:
 
 == The Name
@@ -199,6 +199,6 @@ octave --path src/verification:src/audit:src/interface \
 
 == License
 
-PMPL-1.0-or-later (Palimpsest License)
+MPL-2.0 (Palimpsest License)
 
 Copyright (c) 2026 Jonathan D.A. Jewell (hyperpolymath) <j.d.a.jewell@open.ac.uk>

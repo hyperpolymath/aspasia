@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: PMPL-1.0-or-later
+# SPDX-License-Identifier: MPL-2.0
 # ⚠️ STOP - CRITICAL READING REQUIRED
 
 **THIS FILE MUST BE READ FIRST BY ALL AI AGENTS**
@@ -75,7 +75,7 @@ Full protocol: `boj-server/cartridges/echidna-llm-mcp/docs/CALL-PROTOCOL.adoc`
 1. **INDEPENDENCE** — No shared code, libraries, or state with StatistEase
 2. **AUDITOR, NOT GATEKEEPER** — Never block, always explain
 3. **No state file duplication** — `.machine_readable/` is authoritative
-4. **License** — PMPL-1.0-or-later
+4. **License** — MPL-2.0
 5. **Author** — "Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>"
 
 ## META
@@ -83,4 +83,4 @@ Full protocol: `boj-server/cartridges/echidna-llm-mcp/docs/CALL-PROTOCOL.adoc`
 - **Format Version:** 1.0.0
 - **Created:** 2026-02-20
 - **Maintained By:** hyperpolymath
-- **License:** PMPL-1.0-or-later
+- **License:** MPL-2.0

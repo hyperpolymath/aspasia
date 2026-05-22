@@ -1,4 +1,4 @@
-% SPDX-License-Identifier: PMPL-1.0-or-later
+% SPDX-License-Identifier: MPL-2.0
 % correlation_verify.m — Independent verification of correlation and regression.
 
 function result = pearson_verify(x, y, claimed)

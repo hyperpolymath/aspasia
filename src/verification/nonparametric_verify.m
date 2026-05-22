@@ -1,4 +1,4 @@
-% SPDX-License-Identifier: PMPL-1.0-or-later
+% SPDX-License-Identifier: MPL-2.0
 % nonparametric_verify.m — Independent verification of nonparametric tests.
 
 function result = mann_whitney_verify(group1, group2, claimed)

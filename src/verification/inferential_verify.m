@@ -1,4 +1,4 @@
-% SPDX-License-Identifier: PMPL-1.0-or-later
+% SPDX-License-Identifier: MPL-2.0
 % inferential_verify.m — Independent verification of inferential statistics.
 
 function result = ttest_independent_verify(group1, group2, claimed)

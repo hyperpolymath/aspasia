@@ -1,4 +1,4 @@
-% SPDX-License-Identifier: PMPL-1.0-or-later
+% SPDX-License-Identifier: MPL-2.0
 % descriptive_verify.m — Independent verification of descriptive statistics.
 %
 % WHY OCTAVE AND NOT JULIA?
