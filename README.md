@@ -3,6 +3,18 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 SPDX-FileCopyrightText: 2025-2026 Jonathan D.A. Jewell <j.d.a.jewell@open.ac.uk>
 -->
 
+> [!WARNING]
+> **Early-stage research prototype — not a product, and not an oracle.**
+> Interfaces and audit rules are experimental and may change or be abandoned.
+> A green verdict is a second opinion to investigate, **not** proof an
+> analysis is correct — keep a human in the loop. Interest, critique and
+> collaboration are warmly welcome.
+> See **[PROTOTYPE.md](PROTOTYPE.md)** for the full disclaimer and how this
+> connects to the ethics work —
+> [Phronesiser](https://github.com/hyperpolymath/phronesiser) (normative
+> constraints) and [Vexometer](https://github.com/hyperpolymath/vexometer)
+> (interaction ethics / UX).
+
 # The Name
 
 **Aspasia of Miletus** (~470-400 BCE) taught Socrates the art of
