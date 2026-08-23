@@ -22,7 +22,7 @@ author = "Jonathan D.A. Jewell (hyperpolymath)"
 build-tool = "just"
 container-runtime = "podman"
 ci-platform = "github-actions"
-package-manager = "guix"  # guix | nix | cargo | mix
+package-manager = "guix"  # guix | guix | cargo | mix
 
 [design-rationale]
 # Key design decisions and their reasoning
