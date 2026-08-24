@@ -1,12 +1,8 @@
-<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
-<!-- TOPOLOGY.md — Aspasia architecture map and completion dashboard -->
-<!-- Last updated: 2026-02-20 -->
+== Aspasia — Project Topology
 
-# Aspasia — Project Topology
+=== System Architecture
 
-## System Architecture
-
-```
+....
               ┌─────────────────────────────────┐
               │         STATISTEASE (Julia)      │
               │  Computes statistical results    │
@@ -48,20 +44,20 @@
               │  Formal proof verification       │
               │  GraphQL API — neutral ground    │
               └─────────────────────────────────┘
-```
+....
 
-## Three-Body Governance
+=== Three-Body Governance
 
-```
+....
          StatistEase ◄──────────── echidna ──────────────► Aspasia
          (computes)                 (arbitrates)            (audits)
               │                        ▲                       │
               └────────── disagree? ───┘────── disagree? ──────┘
-```
+....
 
-## Completion Dashboard
+=== Completion Dashboard
 
-```
+....
 COMPONENT                          STATUS              NOTES
 ─────────────────────────────────  ──────────────────  ─────────────────────────────────
 NUMERICAL VERIFICATION (Octave)
@@ -99,13 +95,13 @@ PLANNED
 
 ─────────────────────────────────────────────────────────────────────────────
 OVERALL:                            █████████░  90%    Core engine + resolution complete
-```
+....
 
-## Key Dependencies
+=== Key Dependencies
 
-```
+....
 GNU Octave ──► Aspasia ──► SWI-Prolog ──► Logtalk
                   │
                   ├──► StatistEase (JSON read-only)
                   └──► echidna (arbitration, planned)
-```
+....
