@@ -155,6 +155,20 @@ dependencies:
         commit: 'sha1-b25f613c860823372a7ff2cb75c23f3606bee81f'
         owner_id: 6759885
         repo_id: 1326697643
+        uses:
+            - 'hyperpolymath/deed-ecosystem@f9d999b60cb5f383679ea19912bcdc49c944973a'
+            - 'hyperpolymath/k9-ecosystem@2155aa26a21758f2ba119f61bc7e0e1981c106fb'
+
+    'hyperpolymath/deed-ecosystem@f9d999b60cb5f383679ea19912bcdc49c944973a':
+        ref: 'main'
+        commit: 'sha1-f9d999b60cb5f383679ea19912bcdc49c944973a'
+        owner_id: 6759885
+        repo_id: 1275649586
+    'hyperpolymath/k9-ecosystem@2155aa26a21758f2ba119f61bc7e0e1981c106fb':
+        ref: 'main'
+        commit: 'sha1-2155aa26a21758f2ba119f61bc7e0e1981c106fb'
+        owner_id: 6759885
+        repo_id: 1275650185
     'hyperpolymath/k9-ecosystem@main':
         ref: 'main'
         commit: 'sha1-89f3c2702f4f650a92aa7411502f38da06abd562'
