@@ -43,10 +43,7 @@ workflows:
         - 'actions/upload-artifact@v4.6.2'
         - 'softprops/action-gh-release@v2.5.0'
     '.github/workflows/scorecard.yml': []
-    '.github/workflows/secret-scanner.yml':
-        - 'actions/checkout@v6.0.2'
-        - 'gitleaks/gitleaks-action@v2.3.9'
-        - 'trufflesecurity/trufflehog@v3.93.8'
+    '.github/workflows/secret-scanner.yml': []
 dependencies:
     'actions/cache@v4.3.0':
         ref: 'v4.3.0'
