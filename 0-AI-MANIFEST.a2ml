@@ -38,8 +38,6 @@ src/
 ├── audit/                  # Socratic audit engine
 │   ├── socratic_engine.m
 │   └── governance.m
-├── logtalk/                # Knowledge base
-│   └── statistical_knowledge.lgt
 └── interface/              # StatistEase bridge
     └── statistease_bridge.m
 ```

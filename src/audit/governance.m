@@ -27,7 +27,7 @@
 % 2. Different numerical backend (LAPACK, not OpenBLAS)
 % 3. Different reasoning engine (Prolog, not LLM tool calls)
 % 4. Separate repository (own maintainers, own update cycle)
-% 5. Own Logtalk knowledge base (learns independently)
+% 5. Own knowledge base (learns independently)
 % 6. No shared state with StatistEase
 % 7. No shared neural weights
 %
@@ -56,7 +56,7 @@ function model = governance_model()
     'ACCOUNTABILITY: Aspasia tracks its own false positive rate'; ...
     'SOCRATIC: Questions, not assertions — reveal gaps in reasoning'; ...
     'NON-BLOCKING: Results are always delivered; audit accompanies, never prevents'; ...
-    'LEARNABLE: Logtalk knowledge base evolves from user feedback'; ...
+    'LEARNABLE: knowledge base evolves from user feedback'; ...
     'REPRODUCIBLE: All audits are deterministic given the same inputs' ...
   };
 
@@ -89,7 +89,7 @@ end
 function record = create_audit_record(transaction, report, timestamp)
   % CREATE_AUDIT_RECORD  Create a persistent audit trail entry.
   %
-  %   Used by the Logtalk knowledge base to learn from past audits.
+  %   Used by the knowledge base to learn from past audits.
 
   record = struct( ...
     'timestamp', timestamp, ...

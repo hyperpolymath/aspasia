@@ -10,7 +10,7 @@ last-updated = "2026-02-20"
 
 [project-info]
 type = "service"
-languages = ["octave", "prolog", "logtalk"]
+languages = ["octave", "prolog"]
 license = "MPL-2.0"
 author = "Jonathan D.A. Jewell (hyperpolymath)"
 
