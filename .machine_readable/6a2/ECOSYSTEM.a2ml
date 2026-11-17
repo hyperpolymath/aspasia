@@ -32,5 +32,4 @@ integrations = [
 [technology-stack]
 primary-language = "GNU Octave"
 reasoning-engine = "SWI-Prolog + DeepProbLog"
-knowledge-base = "Logtalk"
 independence-from = "Julia/OpenBLAS/LLM tool calling (StatistEase stack)"

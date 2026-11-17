@@ -146,7 +146,7 @@ Aspasia operates as an *AUDITOR*, not a gatekeeper:
 * It NEVER prevents computation
 * It ALWAYS explains WHY it raises a concern
 * It tracks its own accuracy (precision and recall of challenges)
-* It learns from user feedback (Logtalk knowledge base)
+* It learns from user feedback
 
 == What Happens When They Disagree?
 
@@ -209,7 +209,6 @@ This is honest. It is more useful than silently picking one answer.
 
 * *GNU Octave 8+* with the `+statistics+` package
 * *SWI-Prolog 9+* (for ontological reasoning)
-* *Logtalk 3+* (for knowledge base management)
 * Optional: *DeepProbLog* (for probabilistic logic)
 
 == Quick Start

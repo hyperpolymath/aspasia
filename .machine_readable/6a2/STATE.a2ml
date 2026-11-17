@@ -25,7 +25,6 @@ milestones = [
   { name = "DeepProbLog probabilistic rules", completion = 100 },
   { name = "Socratic audit engine", completion = 100 },
   { name = "Governance model", completion = 100 },
-  { name = "Logtalk knowledge base", completion = 100 },
   { name = "StatistEase JSON bridge", completion = 100 },
   { name = "echidna GraphQL arbitration", completion = 0 },
   { name = "Tests", completion = 0 },
