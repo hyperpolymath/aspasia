@@ -27,7 +27,7 @@
 %   - It NEVER prevents computation
 %   - It ALWAYS explains WHY it raises a concern
 %   - It tracks its own accuracy (was the concern valid?)
-%   - It learns from user feedback (Logtalk knowledge base)
+%   - It learns from user feedback (knowledge base)
 %
 % This is the Socratic method: not telling you what to think, but asking
 % the questions that reveal whether you've thought it through.
